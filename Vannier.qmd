@@ -81,3 +81,14 @@ ggplot(df_q12, aes(x=distance, group=Faction_id, fill=Faction_id))+geom_boxplot(
 Those two representations give complementary information : the first one is more precise and the second allow better comparisons.
 
 
+```{r}
+knitr::kable(df_q12 |> group_by(Faction_id) |> slice_max(distance)|> select(STAR_NAME,distance,Faction_id), align = "c")
+```
+
+
+
+
+
+
+
+
