@@ -41,3 +41,16 @@ ggplot(Star_plus_systems, aes(x = Mass, y=luminosity))+geom_point(na.rm = TRUE,a
 ```
 We can see that the luminosity of a star is linked to its mass : stars that weight less tend to diffuse less light.
 
+# 3 Factions
+
+
+
+
+
+
+
+
+
+
+
+
