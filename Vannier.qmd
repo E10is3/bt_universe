@@ -16,4 +16,9 @@ library(ggplot2)
 
 Here is the link to the corresponding github repository : [github_repository](https://github.com/E10is3/bt_universe.git)
 
+## Loading the main data set
+```{r}
+#| message: false
+Star_plus_systems <- vroom(here("data", "Star+systems.csv"), delim=";", col_names = TRUE,col_types=NULL, show_col_types=T,locale=locale(decimal_mark = ","))
+```
 
