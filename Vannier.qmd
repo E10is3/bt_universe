@@ -52,6 +52,10 @@ BT_FACTIONS <- vroom(here("data", "BT-FACTIONS.csv"), col_names = TRUE,na=("Miss
 system_faction <- vroom(here("data", "sytem+faction.csv"), col_names = TRUE,na=("Missing"))
 ```
 
+```{r}
+knitr::kable(system_faction |> 
+  summarise("Nb abandoned star system" = NROW(system_faction |>filter(Faction_id == "A")), "Nb independant systems" =NROW(system_faction |>filter(Faction_id == "I")),"Nb undiscover systems" = NROW(system_faction |>filter(Faction_id == "U")) ))
+```
 
 
 
