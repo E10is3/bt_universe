@@ -34,4 +34,10 @@ Star_plus_systems |> summarise("nb of observations" = NROW(Star_plus_systems),"n
   knitr::kable(align = 'c', caption = "Star_plus_systems data set properties")
 ```
 
+# 2 Introductory analysis
+
+```{r}
+ggplot(Star_plus_systems, aes(x = Mass, y=luminosity))+geom_point(na.rm = TRUE,alpha=0.1)
+```
+We can see that the luminosity of a star is linked to its mass : stars that weight less tend to diffuse less light.
 
