@@ -43,7 +43,7 @@ We can see that the luminosity of a star is linked to its mass : stars that weig
 
 # 3 Factions
 
-## Loading the faction data set
+### Loading the faction data set
 
 ```{r}
 #| message: false
@@ -52,13 +52,13 @@ BT_FACTIONS <- vroom(here("data", "BT-FACTIONS.csv"), col_names = TRUE,na=("Miss
 system_faction <- vroom(here("data", "sytem+faction.csv"), col_names = TRUE,na=("Missing"))
 ```
 
-## Number of abandoned, independent and undis- covered star systems during year 2571
+### Number of abandoned, independent and undis- covered star systems during year 2571
 ```{r}
 knitr::kable(system_faction |> 
   summarise("Nb abandoned star system" = NROW(system_faction |>filter(Faction_id == "A")), "Nb independant systems" =NROW(system_faction |>filter(Faction_id == "I")),"Nb undiscover systems" = NROW(system_faction |>filter(Faction_id == "U")) ))
 ```
 
-## Number of star systems that cannot be found in the sytem+faction.csv file
+### Number of star systems that cannot be found in the sytem+faction.csv file
 
 ```{r}
 notfound <- NROW(anti_join(Star_plus_systems,system_faction,by = join_by(star_number)))
@@ -66,9 +66,18 @@ notfound <- NROW(anti_join(Star_plus_systems,system_faction,by = join_by(star_nu
 
 There are `r notfound` star systems that cannot be found in the sytem+faction.csv file.
 
+### Graphical representation of the distance to the Sun of star systems conditioned by the controlling faction, including only real factions
 
+```{r}
+df_q12 <- left_join(Star_plus_systems,system_faction,by = join_by(star_number))|> filter(Faction_id != "A",Faction_id != "I",Faction_id != "U")
+```
 
-
-
+```{r}
+ggplot(df_q12, aes(x=distance))+geom_histogram(bins=40)+facet_wrap(~Faction_id)
+```
+```{r}
+ggplot(df_q12, aes(x=distance, group=Faction_id, fill=Faction_id))+geom_boxplot()
+```
+Those two representations give complementary information : the first one is more precise and the second allow better comparisons.
 
 
