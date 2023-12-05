@@ -20,5 +20,18 @@ Here is the link to the corresponding github repository : [github_repository](ht
 ```{r}
 #| message: false
 Star_plus_systems <- vroom(here("data", "Star+systems.csv"), delim=";", col_names = TRUE,col_types=NULL, show_col_types=T,locale=locale(decimal_mark = ","))
+if (NROW(Star_plus_systems)!=1074){
+  print("There is a problem with the loading")
+}else if(NCOL(Star_plus_systems)!=8){
+   print("There is a problem with the loading")
+}
 ```
+
+## Description of the main data set
+```{r}
+#| message: false
+Star_plus_systems |> summarise("nb of observations" = NROW(Star_plus_systems),"nb of variables"= NCOL(Star_plus_systems))|>
+  knitr::kable(align = 'c', caption = "Star_plus_systems data set properties")
+```
+
 
