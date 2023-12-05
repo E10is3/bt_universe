@@ -43,6 +43,14 @@ We can see that the luminosity of a star is linked to its mass : stars that weig
 
 # 3 Factions
 
+## Loading the faction data set
+
+```{r}
+#| message: false
+BT_FACTIONS <- vroom(here("data", "BT-FACTIONS.csv"), col_names = TRUE,na=("Missing"))
+
+system_faction <- vroom(here("data", "sytem+faction.csv"), col_names = TRUE,na=("Missing"))
+```
 
 
 
