@@ -1,5 +1,6 @@
 ---
-title: "Vannier"
+title: "bt_universe"
+author: "Eloïse Vannier
 format: html
 ---
 
@@ -12,4 +13,7 @@ library(dplyr)
 library(tidyr)
 library(ggplot2)
 ```
+
+Here is the link to the corresponding github repository : [github_repository](https://github.com/E10is3/bt_universe.git)
+
 
